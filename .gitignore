@@ -46,3 +46,15 @@ cabal.project.local
 _cache/
 _site/
 .stack-work/
+
+### Vim ###
+# swap
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+# session
+Session.vim
+# temporary
+.netrwhist
+*~
+# auto-generated tag files
+tags
