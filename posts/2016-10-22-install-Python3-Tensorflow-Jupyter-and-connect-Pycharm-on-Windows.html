@@ -27,7 +27,92 @@
     
 </div>
 
-<p>지금부터 설명하는 방법으로 설치하면 Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다. <del>아마도</del>  # 설치 순서  1. <a href="http://solarisailab.com/archives/384">윈도우(Windows) 환경에서 Docker를 이용해서 Tensorflow설치하기</a> 여기에 들어가셔서 <strong>Step 2</strong>까지 진행합니다. (docker 설치 완료 까지)  2. <strong>Docker Quickstart Terminal</strong>을 켭니다.  3. <strong>erroneousboat/tensorflow-python3-jupyter</strong> 이미지를 다운 받습니다. <code>bash $ docker pull erroneousboat/tensorflow-python3-jupyter</code> 를 입력합니다.   4. 그리고 <strong>tf</strong>라는 이름으로 컨테이너를 생성합니다.(이름은 마음대로 바꿔도 상관 없어요) <code>bash $ docker run -p 8888:8888 -p 6006:6006 --name tf  \ -v {공유하고자 하는 폴더 경로}:/notebooks \ -it erroneousboat/tensorflow-python3-jupyter</code> 를 입력합니다.  &gt; <em><strong>참고</strong></em> &gt; {공유하고자 하는 폴더 경로} 값 설정 방법 &gt; &gt; * <a href="http://bryan7.tistory.com/797">Windows Docker Toolbox에서 Host PC와 폴더 공유하기</a> &gt; &gt; 각 옵션들의 역할 &gt; &gt; * http://pyrasis.com/Docker/Docker-HOWTO#docker &gt; * https://docs.docker.com/engine/reference/run/ &gt; &gt; 각 옵션들의 의미 &gt; &gt; * 8888:8888  &gt; jupyter &gt; * 6006:6006 &gt; tensorboard  5. 현재 사용중인 도커 머신의 ip 값을 얻습니다. 다른 docker 입력창을 띄워서  <code>bash $ docker-machine ip</code> 를 입력합니다.  6. jupyter를 사용합니다. 인터넷 주소창에  <code>http://{출력된 ip 값}:8888</code> 을 입력합니다.   7. PyCharm과 연동합니다. <a href="http://bryan7.tistory.com/864">PyCharm Professional 버전에서 Docker로 Remote Debugging</a>  8. 실행중인 컨테이너를 종료합니다 1. <code>Ctrl + c</code> 2. <code>y</code> + <code>Enter</code> 9. 컨테이너를 시작합니다. <code>$ docker start -a tf</code> 10. 컨테이너를 종료합니다. 아마 <code>Ctrl + c</code>를 누르면 컨테이너를 종료하지 않고 그냥 커맨드창으로 나가질 것입니다. 그럴경우  <code>bash $ docker attach tf</code> 를 입력하고 <code>8 번</code>작업을 진행합니다.   ## 파악되지 않은 것 들  * Tensorboard  — # 참고한 자료  <em>위의 내용에 있는 링크는 제외</em>  * erroneousboat/tensorflow-python3-jupyter * https://hub.docker.com/r/erroneousboat/tensorflow-python3-jupyter/ * https://github.com/erroneousboat/tensorflow-python3-jupyter * https://github.com/erroneousboat/tensorflow-python3-jupyter/blob/master/Dockerfile * Tensorboard * http://dsmoon.tistory.com/entry/TensorBoard-Visualizing-Learning * Windows: Using Tensorflow with Python 3 instead of Python 2 (Docker) * http://stackoverflow.com/questions/38411049/windows-using-tensorflow-with-python-3-instead-of-python-2-docker * Docker * https://trello.com/c/MWlg7ctv/19-docker * https://docs.docker.com/engine/reference * Python * <a href="https://wikidocs.net/book/1">점프 투 파이썬</a> * Jupyter * https://www.youtube.com/watch?v=VbbXUKigVfs&amp;index=8&amp;list=LLpuUPGyyxFEsKAAFfaLKJKA * http://haanjack.github.io/jupyter/ipython/2016/03/08/jupyter.html</p>
+<p>지금부터 설명하는 방법으로 설치하면 Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다. <del>아마도</del></p>
+<h1 id="설치-순서">설치 순서</h1>
+<ol style="list-style-type: decimal">
+<li><p><a href="http://solarisailab.com/archives/384">윈도우(Windows) 환경에서 Docker를 이용해서 Tensorflow설치하기</a> 여기에 들어가셔서 <strong>Step 2</strong>까지 진행합니다. (docker 설치 완료 까지)</p></li>
+<li><p><strong>Docker Quickstart Terminal</strong>을 켭니다.</p></li>
+<li><p><strong>erroneousboat/tensorflow-python3-jupyter</strong> 이미지를 다운 받습니다.</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker</span> pull erroneousboat/tensorflow-python3-jupyter</code></pre></div>
+<p>를 입력합니다.</p></li>
+<li><p>그리고 <strong>tf</strong>라는 이름으로 컨테이너를 생성합니다.(이름은 마음대로 바꿔도 상관 없어요)</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker</span> run -p 8888:8888 -p 6006:6006 --name tf  \
+-v {공유하고자 하는 폴더 경로}:<span class="ex">/notebooks</span> \
+-it erroneousboat/tensorflow-python3-jupyter</code></pre></div>
+<p>를 입력합니다.</p></li>
+</ol>
+<blockquote>
+<p><em><strong>참고</strong></em> {공유하고자 하는 폴더 경로} 값 설정 방법</p>
+<ul>
+<li><a href="http://bryan7.tistory.com/797">Windows Docker Toolbox에서 Host PC와 폴더 공유하기</a></li>
+</ul>
+<p>각 옵션들의 역할</p>
+<ul>
+<li>http://pyrasis.com/Docker/Docker-HOWTO#docker</li>
+<li>https://docs.docker.com/engine/reference/run/</li>
+</ul>
+<p>각 옵션들의 의미</p>
+<ul>
+<li>8888:8888 jupyter</li>
+<li>6006:6006 tensorboard</li>
+</ul>
+</blockquote>
+<ol start="5" style="list-style-type: decimal">
+<li><p>현재 사용중인 도커 머신의 ip 값을 얻습니다. 다른 docker 입력창을 띄워서</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker-machine</span> ip</code></pre></div>
+<p>를 입력합니다.</p></li>
+<li><p>jupyter를 사용합니다. 인터넷 주소창에</p>
+<pre><code>http://{출력된 ip 값}:8888</code></pre>
+<p>을 입력합니다.</p></li>
+<li><p>PyCharm과 연동합니다. <a href="http://bryan7.tistory.com/864">PyCharm Professional 버전에서 Docker로 Remote Debugging</a></p></li>
+<li>실행중인 컨테이너를 종료합니다
+<ol style="list-style-type: decimal">
+<li><code>Ctrl + c</code></li>
+<li><code>y</code> + <code>Enter</code></li>
+</ol></li>
+<li><p>컨테이너를 시작합니다.</p>
+<pre><code>$ docker start -a tf</code></pre></li>
+<li><p>컨테이너를 종료합니다. 아마 <code>Ctrl + c</code>를 누르면 컨테이너를 종료하지 않고 그냥 커맨드창으로 나가질 것입니다. 그럴경우</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker</span> attach tf</code></pre></div>
+<p>를 입력하고 <code>8 번</code>작업을 진행합니다.</p></li>
+</ol>
+<h2 id="파악되지-않은-것-들">파악되지 않은 것 들</h2>
+<ul>
+<li>Tensorboard</li>
+</ul>
+<hr />
+<h1 id="참고한-자료">참고한 자료</h1>
+<p><em>위의 내용에 있는 링크는 제외</em></p>
+<ul>
+<li>erroneousboat/tensorflow-python3-jupyter
+<ul>
+<li>https://hub.docker.com/r/erroneousboat/tensorflow-python3-jupyter/</li>
+<li>https://github.com/erroneousboat/tensorflow-python3-jupyter</li>
+<li>https://github.com/erroneousboat/tensorflow-python3-jupyter/blob/master/Dockerfile</li>
+</ul></li>
+<li>Tensorboard
+<ul>
+<li>http://dsmoon.tistory.com/entry/TensorBoard-Visualizing-Learning</li>
+</ul></li>
+<li>Windows: Using Tensorflow with Python 3 instead of Python 2 (Docker)
+<ul>
+<li>http://stackoverflow.com/questions/38411049/windows-using-tensorflow-with-python-3-instead-of-python-2-docker</li>
+</ul></li>
+<li>Docker
+<ul>
+<li>https://trello.com/c/MWlg7ctv/19-docker</li>
+<li>https://docs.docker.com/engine/reference</li>
+</ul></li>
+<li>Python
+<ul>
+<li><a href="https://wikidocs.net/book/1">점프 투 파이썬</a></li>
+</ul></li>
+<li>Jupyter
+<ul>
+<li>https://www.youtube.com/watch?v=VbbXUKigVfs&amp;index=8&amp;list=LLpuUPGyyxFEsKAAFfaLKJKA</li>
+<li>http://haanjack.github.io/jupyter/ipython/2016/03/08/jupyter.html</li>
+</ul></li>
+</ul>
 
         </div>
         <div id="footer">
