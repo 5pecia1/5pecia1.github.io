@@ -24,22 +24,22 @@ $ docker run -p 8888:8888 -p 6006:6006 --name tf  \
 ```
 를 입력합니다.
 
-> _**참고**_
-> {공유하고자 하는 폴더 경로} 값 설정 방법
->
-> * [Windows Docker Toolbox에서 Host PC와 폴더 공유하기](http://bryan7.tistory.com/797)
->
-> 각 옵션들의 역할
->
-> * http://pyrasis.com/Docker/Docker-HOWTO#docker
-> * https://docs.docker.com/engine/reference/run/
->
-> 각 옵션들의 의미
->
-> * 8888:8888 
->     jupyter
-> * 6006:6006
->    tensorboard
+    > _**참고**_
+    > {공유하고자 하는 폴더 경로} 값 설정 방법
+    >
+     > * [Windows Docker Toolbox에서 Host PC와 폴더 공유하기](http://bryan7.tistory.com/797)
+    >
+    > 각 옵션들의 역할
+    >
+    > * http://pyrasis.com/Docker/Docker-HOWTO#docker
+    > * https://docs.docker.com/engine/reference/run/
+    >
+    > 각 옵션들의 의미
+    >
+    > * 8888:8888 
+    >     jupyter
+    > * 6006:6006
+    >    tensorboard
 
 5. 현재 사용중인 도커 머신의 ip 값을 얻습니다.
 다른 docker 입력창을 띄워서 
