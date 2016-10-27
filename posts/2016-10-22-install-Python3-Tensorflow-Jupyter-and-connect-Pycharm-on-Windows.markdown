@@ -4,7 +4,7 @@ title: Windows 환경에서 Python3-Tensorflow-Jupyter 설치 및 Pycharm 연동
 
 지금부터 설명하는 방법으로 설치하면  Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다. ~~아마도~~
 
-# 설치 순서
+## 설치 순서
 
 1. [윈도우(Windows) 환경에서 Docker를 이용해서 Tensorflow설치하기](http://solarisailab.com/archives/384) 여기에 들어가셔서 **Step 2**까지 진행합니다. (docker 설치 완료 까지)
 
@@ -62,7 +62,7 @@ http://{출력된 ip 값}:8888
     1. `Ctrl + c`
     2. `y` + `Enter`
 9. 컨테이너를 시작합니다.
-```
+```bash
 $ docker start -a tf
 ```
 10. 컨테이너를 종료합니다.
@@ -73,12 +73,12 @@ $ docker attach tf
 ```
 를 입력하고  `8 번`작업을 진행합니다. 
 
-## 파악되지 않은 것 들
+### 파악되지 않은 것 들
 
 * Tensorboard
 
 ---
-# 참고한 자료
+## 참고한 자료
 
 _위의 내용에 있는 링크는 제외_
 
