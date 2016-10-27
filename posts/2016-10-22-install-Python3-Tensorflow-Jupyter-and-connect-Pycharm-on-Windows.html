@@ -35,16 +35,15 @@
             </div>
         </div>
 
-        <div id="content" class="markdown-body">
+        <div id="content">
             <h1>Windows 환경에서 Python3-Tensorflow-Jupyter 설치 및 Pycharm 연동 방법</h1>
-
             <div class="info">
     Posted on October 22, 2016
     
 </div>
-
-<p>지금부터 설명하는 방법으로 설치하면 Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다. <del>아마도</del></p>
-<h1 id="설치-순서">설치 순서</h1>
+<div class="markdown-body">
+    <p>지금부터 설명하는 방법으로 설치하면 Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다. <del>아마도</del></p>
+<h2 id="설치-순서">설치 순서</h2>
 <ol style="list-style-type: decimal">
 <li><p><a href="http://solarisailab.com/archives/384">윈도우(Windows) 환경에서 Docker를 이용해서 Tensorflow설치하기</a> 여기에 들어가셔서 <strong>Step 2</strong>까지 진행합니다. (docker 설치 완료 까지)</p></li>
 <li><p><strong>Docker Quickstart Terminal</strong>을 켭니다.</p></li>
@@ -85,17 +84,17 @@
 <li><code>y</code> + <code>Enter</code></li>
 </ol></li>
 <li><p>컨테이너를 시작합니다.</p>
-<pre><code>$ docker start -a tf</code></pre></li>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker</span> start -a tf</code></pre></div></li>
 <li><p>컨테이너를 종료합니다. 아마 <code>Ctrl + c</code>를 누르면 컨테이너를 종료하지 않고 그냥 커맨드창으로 나가질 것입니다. 그럴경우</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker</span> attach tf</code></pre></div>
 <p>를 입력하고 <code>8 번</code>작업을 진행합니다.</p></li>
 </ol>
-<h2 id="파악되지-않은-것-들">파악되지 않은 것 들</h2>
+<h3 id="파악되지-않은-것-들">파악되지 않은 것 들</h3>
 <ul>
 <li>Tensorboard</li>
 </ul>
 <hr />
-<h1 id="참고한-자료">참고한 자료</h1>
+<h2 id="참고한-자료">참고한 자료</h2>
 <p><em>위의 내용에 있는 링크는 제외</em></p>
 <ul>
 <li>erroneousboat/tensorflow-python3-jupyter
@@ -127,6 +126,7 @@
 <li>http://haanjack.github.io/jupyter/ipython/2016/03/08/jupyter.html</li>
 </ul></li>
 </ul>
+</div>
 
         </div>
         <div id="footer">
