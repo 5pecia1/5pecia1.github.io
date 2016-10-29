@@ -11,7 +11,7 @@ Docker 환경에서 [erroneousboat/tensorflow-python3-jupyter][docker-image] 이
 ## 설치 방법
 
 1. Docker container를 실행시킵니다.  
-   저 같은경우는
+   저의 경우에는
     ```bash
     $ docker start tf
     ```
