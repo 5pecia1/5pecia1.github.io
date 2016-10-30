@@ -42,7 +42,7 @@
     
 </div>
 <div class="markdown-body">
-    <p>지금부터 설명하는 방법으로 설치하면 Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다. <del>아마도</del></p>
+    <p>지금부터 설명하는 방법으로 설치하면 Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다.</p>
 <h2 id="설치-순서">설치 순서</h2>
 <ol style="list-style-type: decimal">
 <li><p><a href="http://solarisailab.com/archives/384">윈도우(Windows) 환경에서 Docker를 이용해서 Tensorflow설치하기</a> 여기에 들어가셔서 <strong>Step 2</strong>까지 진행합니다. (docker 설치 완료 까지)</p></li>
@@ -62,8 +62,8 @@
 </ul>
 <p>각 옵션들의 역할</p>
 <ul>
-<li>http://pyrasis.com/Docker/Docker-HOWTO#docker</li>
-<li>https://docs.docker.com/engine/reference/run/</li>
+<li><a href="http://pyrasis.com/Docker/Docker-HOWTO#docker">Docker 기본 사용법</a></li>
+<li><a href="https://docs.docker.com/engine/reference/run/">Docker run reference</a></li>
 </ul>
 <p>각 옵션들의 의미</p>
 <ul>
@@ -85,11 +85,11 @@
 </ol></li>
 <li><p>컨테이너를 시작합니다.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker</span> start -a tf</code></pre></div></li>
-<li><p>컨테이너를 종료합니다. 아마 <code>Ctrl + c</code>를 누르면 컨테이너를 종료하지 않고 그냥 커맨드창으로 나가질 것입니다. 그럴경우</p>
+<li><p>컨테이너를 종료합니다. 아마 <code>Ctrl + c</code>를 누르면 컨테이너를 종료하지 않고 커맨드창으로 나가질 것입니다. 그럴경우</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="ex">docker</span> attach tf</code></pre></div>
-<p>를 입력하고 <code>8 번</code>작업을 진행합니다.</p></li>
+<p>를 입력하고 <strong>8 번</strong>작업을 진행합니다.</p></li>
 </ol>
-<h3 id="파악되지-않은-것-들">파악되지 않은 것 들</h3>
+<h3 id="파악되지-않은-것">파악되지 않은 것</h3>
 <ul>
 <li>Tensorboard</li>
 </ul>
@@ -97,33 +97,15 @@
 <h2 id="참고한-자료">참고한 자료</h2>
 <p><em>위의 내용에 있는 링크는 제외</em></p>
 <ul>
-<li>erroneousboat/tensorflow-python3-jupyter
-<ul>
-<li>https://hub.docker.com/r/erroneousboat/tensorflow-python3-jupyter/</li>
-<li>https://github.com/erroneousboat/tensorflow-python3-jupyter</li>
-<li>https://github.com/erroneousboat/tensorflow-python3-jupyter/blob/master/Dockerfile</li>
-</ul></li>
-<li>Tensorboard
-<ul>
-<li>http://dsmoon.tistory.com/entry/TensorBoard-Visualizing-Learning</li>
-</ul></li>
-<li>Windows: Using Tensorflow with Python 3 instead of Python 2 (Docker)
-<ul>
-<li>http://stackoverflow.com/questions/38411049/windows-using-tensorflow-with-python-3-instead-of-python-2-docker</li>
-</ul></li>
-<li>Docker
-<ul>
-<li>https://trello.com/c/MWlg7ctv/19-docker</li>
-<li>https://docs.docker.com/engine/reference</li>
-</ul></li>
-<li>Python
-<ul>
+<li><a href="https://hub.docker.com/r/erroneousboat/tensorflow-python3-jupyter/">erroneousboat/tensorflow-python3-jupyter</a></li>
+<li><a href="http://dsmoon.tistory.com/entry/TensorBoard-Visualizing-Learning">TensorBoard: Visualizing Learning</a></li>
+<li><a href="http://stackoverflow.com/questions/38411049/windows-using-tensorflow-with-python-3-instead-of-python-2-docker">Windows: Using Tensorflow with Python 3 instead of Python 2 (Docker)</a></li>
+<li><a href="https://docs.docker.com/engine/reference">Docker Engine reference</a></li>
 <li><a href="https://wikidocs.net/book/1">점프 투 파이썬</a></li>
-</ul></li>
 <li>Jupyter
 <ul>
-<li>https://www.youtube.com/watch?v=VbbXUKigVfs&amp;index=8&amp;list=LLpuUPGyyxFEsKAAFfaLKJKA</li>
-<li>http://haanjack.github.io/jupyter/ipython/2016/03/08/jupyter.html</li>
+<li><a href="https://www.youtube.com/watch?v=VbbXUKigVfs&amp;index=8&amp;list=LLpuUPGyyxFEsKAAFfaLKJKA">김대권: 주피터: 파이썬 노트북, 그리고 파이썬 노트북을 넘어서</a></li>
+<li><a href="http://haanjack.github.io/jupyter/ipython/2016/03/08/jupyter.html">Jupyter 환경 구성</a></li>
 </ul></li>
 </ul>
 </div>
