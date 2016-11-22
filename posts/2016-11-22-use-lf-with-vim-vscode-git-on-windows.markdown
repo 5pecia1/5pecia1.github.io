@@ -17,7 +17,7 @@ Vim은 간단하게 변환할 수 있습니다.
 
 1. 적용할 파일을 vim으로 엽니다
 
-2. Normal Mode에서 
+2. 명령 모드에서 
     ```
     :set ff=unix
     ```
@@ -78,7 +78,7 @@ git config --global core.autocrlf input
 
 이제 commit 및 checkout할 때 LF값을 사용할것 입니다. 
 
-## 쉬운 변환 결과 확인 방법
+## 변환 결과를 확인하는 간단한 방법
 
 Vim이나 VSCode는 CRLF이던지 LF이던지 상관없이 출력이 잘 되기 때문에 바뀌었는지 안바뀌었는지 알 수가 없습니다.  
 결과를 확인하고 싶으시면 윈도우의 메모장(Notepad)를 사용하면 됩니다.
