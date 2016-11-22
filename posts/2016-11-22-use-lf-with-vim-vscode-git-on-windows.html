@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>(Vim, Visual Studio Code, Git) 윈도우에서 줄바꿈을 Line Feed(LF, \n)문자로 하기 - Yak Shaving Mania</title>
+        <link rel="stylesheet" type="text/css" href="../css/default.css" />
+        <link rel="stylesheet" type="text/css" href="../css/github-markdown.css" />
+	<style>     
+		.markdown-body {
+			box-sizing: border-box;
+		} 
+	</style>
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  		ga('create', 'UA-80634913-1', 'auto'); 
+		ga('send', 'pageview');
+
+	</script>
+    </head>
+    <body>
+        <div id="header">
+            <div id="logo">
+                <a href="../">Yak Shaving Mania's yak-hair</a>
+            </div>
+            <div id="navigation">
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../archive.html">Archive</a>
+            </div>
+        </div>
+
+        <div id="content">
+            <h1>(Vim, Visual Studio Code, Git) 윈도우에서 줄바꿈을 Line Feed(LF, \n)문자로 하기</h1>
+            <div class="info">
+    Posted on November 22, 2016
+    
+</div>
+<div class="markdown-body">
+    <blockquote>
+<p><em>이번 글에서는 CRLF()으로 되어 있는 모든 파일을 LF()으로 한번에 변환하는 작업은 다루지 않습니다.</em><br />
+<em>좋은 방법을 아시면 공유 부탁 드립니다.</em></p>
+</blockquote>
+<p>대부분의 윈도우에서 작업한 text의 새줄 문자(newline, 개행 문자, 줄바꿈 문자, eol)는 Carriage Return(CR)과 Line Feed(LF)값입니다. 그리고 유닉스에서는 LF값 입니다.</p>
+<p>그렇지만 윈도우에서 작업한 결과를 유닉스 환경에서 사용하기 위해 LF값만 사용해야 될 때가 있습니다.</p>
+<p>저같은 경우 작업은 윈도우에서 작성하고 하고 빌드를 Docker에서 하니 새줄 문자가 달라서 이상한 결과가 출력되었습니다. 이런 현상을 해결한 방법을 공유하고자 글을 씁니다.</p>
+<h2 id="vim">Vim</h2>
+<p>Vim은 간단하게 변환할 수 있습니다.</p>
+<ol style="list-style-type: decimal">
+<li><p>적용할 파일을 vim으로 엽니다</p></li>
+<li><p>Normal Mode에서</p>
+<pre><code>:set ff=unix</code></pre>
+<p>위와 같이 작성하고 엔터를 누릅니다. 엔터를 누르더라도 별다른 반응은 보이지 않습니다만, CRLF값을 LF로 바꿔줍니다.<br />
+그리고 그 이후에 작성한 결과도 LF 값으로 작성이 됩니다.</p></li>
+<li><p>저장합니다.</p></li>
+</ol>
+<p><br /> <strong>반대로</strong></p>
+<pre><code>:set ff=dos</code></pre>
+<p>도 가능합니다.</p>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<p>VSCode에서는 Extension을 설치하면 모르겠지만 기본 기능중에서 변환 기능은 없는것 같습니다.<br />
+다만 작성할 때 LF로 저장이 가능하게 작성하는 방법을 소개하겠습니다.</p>
+<ol style="list-style-type: decimal">
+<li><strong>파일</strong> -&gt; <strong>기본 설정</strong> -&gt; <strong>사용자 영역 설정</strong> 또는 <strong>작업 영역 설정</strong>을 선택합니다.
+<ul>
+<li><strong>사용자 영역 설정</strong> 전역으로 모든 작업에서 적용 가능하게 설정 하는 방법입니다.<br />
+</li>
+<li><strong>작업 영역 설정</strong> 현재 작업하고 있는 폴더에서만 적용 가능하게 설정 하는 방법입니다.</li>
+</ul>
+<blockquote>
+<p>일반적으로 윈도우에서 특정 프로젝트만 LF로 작업하기 때문에 <strong>작업 영역 설정</strong>을 선택하는것을 추천 합니다.</p>
+</blockquote></li>
+<li><p><code>settings.json</code>파일에</p>
+<pre><code>&quot;files.eol&quot;: &quot;\n&quot;</code></pre>
+<p>값을 추가하고 저장합니다. 최종적으로 작업 디렉토리에 <code>.vscode/settings.json</code> 파일이 생길 것입니다.</p></li>
+</ol>
+<h2 id="git">Git</h2>
+<p>열심히 LF로 새줄 문자가 나오게 설정을 하고 Git으로 커밋을 했지만, 윈도우에서 Git 기본 설정일 경우 <code>git checkout</code>같은 파일에 변화를 주는 명령을 사용하면 CRLF로 변환이 됩니다. Docker에서 사용하면 LF값 그대로 checkout됩니다.</p>
+<p>이런 결과는 Git의 윈도우와 유닉스의 환경 호환을 위한 기능 때문에 일어납니다.</p>
+<blockquote>
+<p><strong>참고</strong></p>
+<p><a href="https://git-scm.com/book/ko/v2/Git%EB%A7%9E%EC%B6%A4-Git-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0#Formatting-and-Whitespace">Git맞춤 - Git 설정하기#Formatting and Whitespace</a></p>
+<blockquote>
+<p>Git은 커밋할 때 자동으로 CRLF를 LF로 변환해주고 반대로 Checkout 할 때 LF를 CRLF로 변환해 주는 기능이 있다. core.autocrlf 설정으로 이 기능을 켤 수 있다. 윈도에서 이 값을 true로 설정하면 Checkout 할 때 LF 문자가 CRLR 문자로 변환된다.</p>
+</blockquote>
+</blockquote>
+<p>그렇기 때문에 Git을 사용한다면 이런 기능을 꺼주는 설정을 해야 합니다.</p>
+<p>명령 프롬프트나 Git Bash 등에서 작성합니다.<br />
+LF를 새줄 문자로 사용하는 설정 입니다.</p>
+<blockquote>
+<p>아래의 명령에는 <code>--global</code> 옵션이 들어가 있는데 일반적으로 윈도우에서 특정 프로젝트만 LF로 작업하기 때문에 빼주는 것이 좋습니다.</p>
+</blockquote>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global core.eol lf
+<span class="fu">git</span> config --global core.autocrlf input</code></pre></div>
+<p>이제 commit 및 checkout할 때 LF값을 사용할것 입니다.</p>
+<h2 id="쉬운-변환-결과-확인-방법">쉬운 변환 결과 확인 방법</h2>
+<p>Vim이나 VSCode는 CRLF이던지 LF이던지 상관없이 출력이 잘 되기 때문에 바뀌었는지 안바뀌었는지 알 수가 없습니다.<br />
+결과를 확인하고 싶으시면 윈도우의 메모장(Notepad)를 사용하면 됩니다.</p>
+<div class="figure">
+<img src="../images/2016-11-22-crlf.png" alt="CRLF일 경우" />
+<p class="caption">CRLF일 경우</p>
+</div>
+<p><br /></p>
+<div class="figure">
+<img src="../images/2016-11-22-lf.png" alt="LF일 경우" />
+<p class="caption">LF일 경우</p>
+</div>
+<hr />
+<h2 id="참고한-자료">참고한 자료</h2>
+<p><em>위의 내용에 있는 링크는 제외</em></p>
+<ul>
+<li><a href="https://ko.wikipedia.org/wiki/%EC%83%88%EC%A4%84_%EB%AC%B8%EC%9E%90">새줄 문자</a></li>
+<li><a href="https://www.lesstif.com/pages/viewpage.action?pageId=20776404">git 에서 CRLF 개행 문자 차이로 인한 문제 해결하기</a></li>
+<li><a href="http://stackoverflow.com/questions/2517190/how-do-i-force-git-to-use-lf-instead-of-crlf-under-windows">How do I force git to use LF instead of CR+LF under windows?</a></li>
+<li><a href="http://mwultong.blogspot.com/2007/05/vim-vi-dos-cr-lf-to-unix-newline.html">Vim Vi, 도스 텍스트를 유닉스 텍스트로 개행문자 변환; DOS CR-LF to Unix Newline</a></li>
+</ul>
+</div>
+
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//5pecia1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                                
+
+        </div>
+        <div id="footer">
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </div>
+    </body>
+</html>
