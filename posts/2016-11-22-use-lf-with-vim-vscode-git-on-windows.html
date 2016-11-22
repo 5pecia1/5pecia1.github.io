@@ -53,7 +53,7 @@
 <p>Vim은 간단하게 변환할 수 있습니다.</p>
 <ol style="list-style-type: decimal">
 <li><p>적용할 파일을 vim으로 엽니다</p></li>
-<li><p>Normal Mode에서</p>
+<li><p>명령 모드에서</p>
 <pre><code>:set ff=unix</code></pre>
 <p>위와 같이 작성하고 엔터를 누릅니다. 엔터를 누르더라도 별다른 반응은 보이지 않습니다만, CRLF값을 LF로 바꿔줍니다.<br />
 그리고 그 이후에 작성한 결과도 LF 값으로 작성이 됩니다.</p></li>
@@ -98,7 +98,7 @@ LF를 새줄 문자로 사용하는 설정 입니다.</p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="fu">git</span> config --global core.eol lf
 <span class="fu">git</span> config --global core.autocrlf input</code></pre></div>
 <p>이제 commit 및 checkout할 때 LF값을 사용할것 입니다.</p>
-<h2 id="쉬운-변환-결과-확인-방법">쉬운 변환 결과 확인 방법</h2>
+<h2 id="변환-결과를-확인하는-간단한-방법">변환 결과를 확인하는 간단한 방법</h2>
 <p>Vim이나 VSCode는 CRLF이던지 LF이던지 상관없이 출력이 잘 되기 때문에 바뀌었는지 안바뀌었는지 알 수가 없습니다.<br />
 결과를 확인하고 싶으시면 윈도우의 메모장(Notepad)를 사용하면 됩니다.</p>
 <div class="figure">
