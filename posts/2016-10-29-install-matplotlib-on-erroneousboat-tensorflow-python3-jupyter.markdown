@@ -12,14 +12,19 @@ Docker 환경에서 [erroneousboat/tensorflow-python3-jupyter][docker-image] 이
 
 1. Docker container를 실행시킵니다.  
    저의 경우에는
+
     ```bash
     $ docker start tf
     ```
+
 2. **apt-get**을 update 합니다.
+
     ```bash
     $ docker exec tf apt-get update
     ```
+
 3. **matplotlib**을 설치합니다.
+
     ```bash
     $ docker exec tf apt-get install -y python-matplotlib
     ```
