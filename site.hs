@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid (mappend)
 import           Hakyll
+import qualified GHC.IO.Encoding as E
 
 
 --------------------------------------------------------------------------------
