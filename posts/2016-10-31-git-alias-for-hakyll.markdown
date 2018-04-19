@@ -1,5 +1,6 @@
 ---
 title: Git alias for hakyll
+tags: hakyll, haskell, git
 ---
 
 Hakyll 공식 Tutorial에 있는 [TUTORIAL: USING HAKYLL WITH GITHUB PAGES](https://jaspervdj.be/hakyll/tutorials/github-pages-tutorial.html)에는 **develop**에서 빌드를 하고 **master**에서 **\_site/**디렉토리를 `cp -a _site/ .`명령을 이용해 메인 디렉토리롤 복사를 합니다. 그리고 **master**만 github에 올리면 된다고 나와 있습니다.

@@ -1,5 +1,6 @@
 ---
 title: erroneousboat/tensorflow-python3-jupyter에서 matplotlib 설치 방법
+tags: docker, tensorflow, python, matplotlib
 ---
 
 Docker 환경에서 [erroneousboat/tensorflow-python3-jupyter][docker-image] 이미지를 이용해서 [모두를 위한 머신러닝/딥러닝 강의][lecture-list]에 있는 [ML lab 03 - Linear Regression 의 cost 최소화의 TensorFlow 구현][lab-video]를 공부하던 중 [matplotlib][matplotlib]을 사용하는 부분이 나와 설치를 했습니다.  

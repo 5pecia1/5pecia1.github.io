@@ -1,5 +1,6 @@
 ---
 title: (Vim, Visual Studio Code, Git) 윈도우에서 줄바꿈을 Line Feed(LF, \n)문자로 하기
+tags: git, vim, vscode, windows
 ---
 
 >_이번 글에서는 CRLF(\r\n)으로 되어 있는 모든 파일을 LF(\n)으로 한번에 변환하는 작업은 다루지 않습니다._  

@@ -1,5 +1,6 @@
 ---
 title: Windows 환경에서 Python3-Tensorflow-Jupyter 설치 및 Pycharm 연동 방법
+tags: tensorflow, docker, jupyter, pycharm, windows, python
 ---
 
 지금부터 설명하는 방법으로 설치하면  Python3-Tensorflow-Jupyter-PyCharm을 다 사용하실 수 있습니다.
