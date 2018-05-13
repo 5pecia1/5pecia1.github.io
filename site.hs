@@ -3,6 +3,7 @@
 import           Data.Monoid (mappend)
 import           Hakyll
 import qualified GHC.IO.Encoding as E
+import           Text.Pandoc.Options
 
 
 --------------------------------------------------------------------------------
@@ -20,7 +21,7 @@ main = do
 
     match (fromList ["about.rst", "contact.markdown"]) $ do
         route   $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocMathCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
@@ -43,7 +44,7 @@ main = do
 
     match "posts/*" $ do
         route $ setExtension "html"
-        compile $ pandocCompiler
+        compile $ pandocMathCompiler
             >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
             >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
             >>= relativizeUrls
@@ -88,3 +89,17 @@ postCtx =
 
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags = tagsField "tags" tags `mappend` postCtx
+
+pandocMathCompiler :: Compiler (Item String)
+pandocMathCompiler = pandocCompilerWith 
+  defaultHakyllReaderOptions
+  (defaultHakyllWriterOptions {
+        writerHTMLMathMethod = MathJax "http://common.countingto.one/MathJax/MathJax.js"
+      , writerTabStop = 2
+      , writerCiteMethod = Citeproc
+      , writerVariables = [
+          ("csl", "templates/chicago-author-date.csl")
+        , ("link-citations", "true")
+        ]
+      , writerColumns = 80
+    })
