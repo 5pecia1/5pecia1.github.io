@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>부산 블록체인 이더리움 연구 스터디 1, 2, 3회 정리 - Yak Shaving Mania</title>
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" type="text/css" href="../css/github-markdown.css" />
+        <style>
+                .markdown-body {
+                        box-sizing: border-box;
+                }
+        </style>
+        <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-80634913-1', 'auto');
+                ga('send', 'pageview');
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../">Yak Shaving Mania's yak-hair</a>
+            </div>
+            <nav>
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../archive.html">Archive</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1>부산 블록체인 이더리움 연구 스터디 1, 2, 3회 정리</h1>
+            <article>
+    <section class="header">
+        Posted on June  3, 2018
+        
+    </section>
+    <section>
+        
+        Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.html">blockchain</a>, <a href="../tags/dapp.html">dapp</a>, <a href="../tags/solidity.html">solidity</a>
+        
+    </sectoin>
+    <br>
+    <br>
+    <br>
+    <section class="markdown-body">
+        <blockquote>
+<p>부산 블록체인 이더리움 연구 스터디 <a href="https://www.meetup.com/ko-KR/GDG-Busan/events/250677478">1회</a>, <a href="https://www.meetup.com/ko-KR/GDG-Busan/events/250835484">2회</a>, <a href="https://www.meetup.com/ko-KR/GDG-Busan/events/npwvspyxhbnc/">3회</a>에서 나왔던 내용을 정리하는 글 입니다.<br />
+스터디 대부분의 사람들이 윈도우를 사용해서 스터디에서는 윈도우 기준으로 설명을 하였습니다.<br />
+저는 윈도우에서 <strong>WSL</strong>(Windows Subsystem for Linux)을 사용하여 개발하기 때문에 여기선 제가 설정한 환경을 기준으로 설명합니다.<br />
+윈도우에서 사용하는 방법은 필요시 간단하게 언급하겠습니다.</p>
+</blockquote>
+<h2 id="사전에-알아야-할-것">사전에 알아야 할 것</h2>
+<h3 id="solidity">Solidity</h3>
+<h3 id="node.js">Node.js</h3>
+<h3 id="section"></h3>
+<h2 id="이더리움-개발-환경-설정">이더리움 개발 환경 설정</h2>
+<h3 id="node.js-npm"><a href="https://nodejs.org/en/">node.js &amp; npm</a></h3>
+<p>환경이 섞여서 버전관리가 안되는 상황을 피하기 위해 WSL내에서 <strong>NVM</strong>(Node Version Manager)을 설치해 Nodejs를 설치하였다.</p>
+<ol type="1">
+<li><a href="https://github.com/creationix/nvm#installation">nvm github</a>에 들어가서 먼저 NVM을 설치</li>
+<li><p>최신 nodejs 설치</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">nvm</span> install node</a></code></pre></div></li>
+<li><p>확인(버전은 달라질 수 있다)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">npm</span> -v</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">5.6.0</span></a></code></pre></div></li>
+</ol>
+<p><strong>윈도우 사용자</strong>는 <a href="https://nodejs.org/en/">nodejs</a>에 들어가서 바로 설치하면 된다.</p>
+<h3 id="truffle"><a href="http://truffleframework.com/">truffle</a></h3>
+<p>이더리움 개발 프레임워크</p>
+<p>위에서 <strong>npm</strong>을 설치하였으면 <strong>truffle</strong>을 설치하는데 문제는 없다.</p>
+<blockquote>
+<p>가끔 <code>-g</code>로 설치하기 위해서 WSL을 <strong>관리자 모드</strong>로 열어야 할 때도 있다.</p>
+</blockquote>
+<ol type="1">
+<li><p>truffle을 명령어로 설치</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="ex">npm</span> install -g truffle</a></code></pre></div></li>
+</ol>
+<h3 id="ganache">ganache</h3>
+<p>블록체인 테스트 네트워크를 만들어 주는 프로그램</p>
+<p>UI를 이용해 쉽게 사용하기 위해서 윈도우 버전으로 설치 하였다.</p>
+<blockquote>
+<p>커멘드 라인에서 사용 가능한 <strong>ganache-cli</strong>도 있다.</p>
+</blockquote>
+<ol type="1">
+<li><a href="http://truffleframework.com/ganache/">ganache</a>에 들어가서 다운로드 후 설치</li>
+</ol>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p>코드 작성 프로그램</p>
+<ol type="1">
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>에서 설치</li>
+</ol>
+<!-- TODO: #### WSL을 VS code 에서 사용하기 -->
+<h4 id="필수-확장-툴">필수 확장 툴</h4>
+<p>아래 툴들을 <code>Ctrl + Shift + x</code>를 눌러서 설치해 준다</p>
+<ul>
+<li>Prettier</li>
+<li>solidity</li>
+</ul>
+<h3 id="metamask">MetaMask</h3>
+<p>이더리움을 브라우저에서 사용할수 있게 해주는 크롬 확장 프로그램</p>
+<ol type="1">
+<li>크롬에서 <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">MetaMask</a>에 들어가서 설치</li>
+</ol>
+    </section>
+</article>
+<br />
+<hr />
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = '//5pecia1-github-io.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>

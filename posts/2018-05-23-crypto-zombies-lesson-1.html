@@ -45,7 +45,7 @@
     </section>
     <section>
         
-        Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/solitidy.html">solitidy</a>, <a href="../tags/blockchain.html">blockchain</a>, <a href="../tags/crypto-zombies.html">crypto-zombies</a>
+        Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/solidity.html">solidity</a>, <a href="../tags/blockchain.html">blockchain</a>, <a href="../tags/crypto-zombies.html">crypto-zombies</a>
         
     </sectoin>
     <br>
@@ -59,12 +59,12 @@
 <ul>
 <li>컴파일러에게 버전을 알려준다</li>
 </ul>
-<pre class="sol"><code>pragma solidity ^0.4.19</code></pre>
+<pre class="solidity"><code>pragma solidity ^0.4.19</code></pre>
 <h2 id="contract">Contract</h2>
 <ul>
 <li>기본적인 구성 요소</li>
 </ul>
-<pre class="sol"><code>contract HelloWorld {
+<pre class="solidity"><code>contract HelloWorld {
 }</code></pre>
 <h2 id="statet-variable">Statet Variable</h2>
 <ul>
@@ -84,7 +84,7 @@
 <ul>
 <li>부호가 있는 정수</li>
 </ul>
-<pre class="sol"><code>contract HelloWrold{
+<pre class="solidity"><code>contract HelloWrold{
     unit undisngedInteger = 100;
 }</code></pre>
 <h2 id="math-operations">Math Operations</h2>
@@ -96,7 +96,7 @@
 <ul>
 <li>더 복잡한 자료형을 필요로 할 때 사용</li>
 </ul>
-<pre class="sol"><code>struct Person {
+<pre class="solidity"><code>struct Person {
     uint year;
     string name;
 }
@@ -110,7 +110,7 @@ Person sol = Person(123, &quot;sol&quot;);</code></pre>
 <li>솔리디티에는 <strong>동적</strong>, <strong>정적</strong> 배열이 있다</li>
 <li>동적배열을 생성하면 마치 DB처럼 컨트랙트에 구조화된 데이터 저장하는데 유용</li>
 </ul>
-<pre class="sol"><code>uint[3] fixed;
+<pre class="solidity"><code>uint[3] fixed;
 
 uint[] dynamic;
 
@@ -125,9 +125,9 @@ dynamic.push(12);</code></pre>
 <li>공개 데이터 저장에 유용</li>
 </ul></li>
 </ul>
-<pre class="sol"><code>Person[] public people;</code></pre>
+<pre class="solidity"><code>Person[] public people;</code></pre>
 <h2 id="function-declarations">Function Declarations</h2>
-<pre class="sol"><code>function eatHambugers(string _name, uint _amount) {
+<pre class="solidity"><code>function eatHambugers(string _name, uint _amount) {
 }
 
 eatHambugers(&quot;sol&quot;, 100);</code></pre>
@@ -141,14 +141,14 @@ eatHambugers(&quot;sol&quot;, 100);</code></pre>
 <li><code>private</code>키워를 함수명 다음에 적어주면 된다</li>
 <li><code>_</code>로 시작하는 것이 관례</li>
 </ul>
-<pre class="sol"><code>function _addToArray(uint _arr) private {
+<pre class="solidity"><code>function _addToArray(uint _arr) private {
 }</code></pre>
 <h2 id="more-on-functions">More on Functions</h2>
 <h3 id="return-valuese">Return Valuese</h3>
 <ul>
 <li>솔리디티에서는 반환값 종류를 포함한다</li>
 </ul>
-<pre class="sol"><code>string greeting = &quot;Hi&quot;;
+<pre class="solidity"><code>string greeting = &quot;Hi&quot;;
 
 function sayHi() public returns (string) {
     return greeting;
@@ -157,26 +157,26 @@ function sayHi() public returns (string) {
 <ul>
 <li>함수가 상태를 변화시키지 않으면 <code>view</code>함수로 선언</li>
 </ul>
-<pre class="sol"><code>function sayHi() public view returns (string) {</code></pre>
+<pre class="solidity"><code>function sayHi() public view returns (string) {</code></pre>
 <ul>
 <li>함수가 앱에서 어떤 데이터도 접근하지 않으면 <code>pure</code>함수로 선언</li>
 </ul>
-<pre class="sol"><code>function _mul(uint a, uint b) private pure returns (uint) {
+<pre class="solidity"><code>function _mul(uint a, uint b) private pure returns (uint) {
     return a * b;
 }</code></pre>
 <h2 id="keccak256">Keccak256</h2>
 <ul>
-<li>SHA#의 한 버전인 <code>keccak256</code>을 내장 해시 함수로 가지고 있음</li>
+<li>SHA3의 한 버전인 <code>keccak256</code>을 내장 해시 함수로 가지고 있음</li>
 <li>256비트 16진수로 매핑함</li>
 <li>난수 발생기로도 이용 가능</li>
 </ul>
-<pre class="sol"><code>keccak256(&quot;abcd&quot;);
+<pre class="solidity"><code>keccak256(&quot;abcd&quot;);
 keccak256(&quot;abce&quot;);</code></pre>
 <blockquote>
 <p>블록체인에서 안전한 의사 난수 발생기는 매우 어려운 문제이다</p>
 </blockquote>
 <h2 id="typecasting">Typecasting</h2>
-<pre class="sol"><code>uint8 a = 5;
+<pre class="solidity"><code>uint8 a = 5;
 uint b = 6;
 
 uint8 c = a * b; //error
@@ -187,7 +187,7 @@ uint8 c = a * uint8(b)</code></pre>
 <li>블록체인 상에서 앱의 사용자 단에서 무언가 액션이 발생했을 때 의사소통 하는 방법</li>
 <li>컨트랙트는 특정 이벤트가 일어나면 행동을 취한다</li>
 </ul>
-<pre class="sol"><code>event IntegersAdded(uint x, uint y, uint result);
+<pre class="solidity"><code>event IntegersAdded(uint x, uint y, uint result);
 
 function add(uint _x, uint _y) public {
     uint result = _x + _y;
