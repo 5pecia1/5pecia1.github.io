@@ -1,6 +1,6 @@
 ---
 title: 부산 블록체인 이더리움 연구 스터디 1, 2회 정리
-tags: ethereum, blockchain, dapp, solidity solitidy
+tags: ethereum, blockchain, dapp, solidity
 ---
 
 > 부산 블록체인 이더리움 연구 스터디 [1회][1회], [2회][2회]에서 나왔던 내용을 정리하는 글 입니다.
