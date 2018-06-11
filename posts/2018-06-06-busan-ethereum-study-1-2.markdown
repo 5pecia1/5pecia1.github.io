@@ -20,16 +20,16 @@ tags: ethereum, blockchain, dapp, solidity
 Nodejs 환경이 섞여서 버전관리가 안되는 상황을 피하기 위해 WSL내에서 **NVM**(Node Version Manager)을 설치해 Nodejs를 설치하였다.
 
 1. [nvm github](https://github.com/creationix/nvm#installation)에 들어가서 먼저 NVM을 설치
-2. 최신 nodejs 설치
+2. 최신 LTS nodejs 설치
 
     ```bash
-    $ nvm install node
+    $ nvm install 8.11
     ```
 3. 확인(버전은 달라질 수 있다)
 
     ```bash
-    $ npm -v
-    5.6.0
+    $ node -v
+    v8.11.2
     ```
 
 **윈도우 사용자**는 [nodejs](https://nodejs.org/en/)에 들어가서 바로 설치하고 [node windows build toools](https://www.npmjs.com/package/windows-build-tools)를 설치하면 된다
