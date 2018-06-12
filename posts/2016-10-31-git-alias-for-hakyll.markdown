@@ -16,5 +16,5 @@ Hakyll 공식 Tutorial에 있는 [TUTORIAL: USING HAKYLL WITH GITHUB PAGES](http
 * **commit-develop-and-master**
     * **master**가 아닌 현재의 branch에서 add된 파일들은 commit하고 커밋 메시지를 다 입력하면 **make-master**를 실행한 다음 모든 파일을 add하고 커밋하는 명령 입니다.
     * `-m` 옵션을 사용하면 **develop** branch와 **master** branch를 같은 커밋 메시지로 한번에 커밋이 가능합니다.
-* **push-origin-all-checkout-develop**
-    * **develop**이 아닌 현재의 branch에서 모든 branch를 origin에 push 하고 **develop**으로 checkout하는 명령
+    * **push-origin-all-checkout-develop**
+    * **develop**이 아닌 현재의 branch에서 모든 branch를 origin에 push 하고 **develop**으로 checkout하는 명령입니다.
