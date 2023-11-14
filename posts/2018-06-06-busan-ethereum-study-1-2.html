@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>2018-06-06-busan-ethereum-study-1-2 - Yak Shaving Mania</title>
+            <title>부산 블록체인 이더리움 연구 스터디 1, 2회 정리 - Yak Shaving Mania</title>
         <link rel="stylesheet" href="../css/default.css" />
         <link rel="stylesheet" type="text/css" href="../css/github-markdown.css" />
         <style>
@@ -37,7 +37,7 @@
         </header>
 
         <main role="main">
-            <h1>2018-06-06-busan-ethereum-study-1-2</h1>
+            <h1>부산 블록체인 이더리움 연구 스터디 1, 2회 정리</h1>
             <article>
     <section class="header">
         Posted on June  6, 2018
@@ -45,32 +45,14 @@
     </section>
     <section>
         
-        Tags: 
+        Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.html">blockchain</a>, <a href="../tags/dapp.html">dapp</a>, <a href="../tags/solidity.html">solidity</a>
         
     </sectoin>
     <br>
     <br>
     <br>
     <section class="markdown-body">
-        <header>
-<div class="logo">
-<a href="../">Yak Shaving Mania’s yak-hair</a>
-</div>
-<nav> <a href="../">Home</a> <a href="../about.html">About</a> <a href="../contact.html">Contact</a> <a href="../archive.html">Archive</a> </nav>
-</header>
-<div data-role="main">
-<h1 id="부산-블록체인-이더리움-연구-스터디-1-2회-정리">부산 블록체인 이더리움 연구 스터디 1, 2회 정리</h1>
-<article>
-<section class="header">
-Posted on June 6, 2018
-</section>
-<section>
-Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.html">blockchain</a>, <a href="../tags/dapp.html">dapp</a>, <a href="../tags/solidity.html">solidity</a> </sectoin><br />
-<br />
-<br />
-
-<section class="markdown-body">
-<blockquote>
+        <blockquote>
 <p>부산 블록체인 이더리움 연구 스터디 <a href="https://www.meetup.com/ko-KR/GDG-Busan/events/250677478">1회</a>, <a href="https://www.meetup.com/ko-KR/GDG-Busan/events/250835484">2회</a>에서 나왔던 내용을 정리하는 글 입니다.</p>
 </blockquote>
 <blockquote>
@@ -86,14 +68,10 @@ Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.
 <ol type="1">
 <li><a href="https://github.com/creationix/nvm#installation">nvm github</a>에 들어가서 먼저 NVM을 설치</li>
 <li><p>최신 LTS nodejs 설치</p>
-<div id="cb1" class="sourceCode">
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">nvm</span> install 8.11</a></code></pre></div>
-</div></li>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">nvm</span> install 8.11</a></code></pre></div></li>
 <li><p>확인(버전은 달라질 수 있다)</p>
-<div id="cb2" class="sourceCode">
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">node</span> -v</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">v8.11.2</span></a></code></pre></div>
-</div></li>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">v8.11.2</span></a></code></pre></div></li>
 </ol>
 <p><strong>윈도우 사용자</strong>는 <a href="https://nodejs.org/en/">nodejs</a>에 들어가서 바로 설치하고 <a href="https://www.npmjs.com/package/windows-build-tools">node windows build toools</a>를 설치하면 된다</p>
 <h3 id="truffle"><a href="http://truffleframework.com/">truffle</a></h3>
@@ -101,9 +79,7 @@ Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.
 <p>위에서 <strong>npm</strong> 최신버전을 설치하였으면 <strong>truffle</strong>을 설치하는데 문제는 없다.</p>
 <ol type="1">
 <li><p>truffle을 명령어로 설치</p>
-<div id="cb3" class="sourceCode">
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="ex">npm</span> install -g truffle</a></code></pre></div>
-</div>
 <blockquote>
 <p>가끔 <code>-g</code>로 설치하기 위해서 <strong>Ubuntu on Windows</strong>를 <strong>관리자 모드</strong>로 열어야 할 때도 있다.</p>
 </blockquote></li>
@@ -166,17 +142,15 @@ Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.
 <li>ganache를 실행 setting에서 server 부분을 잘 확인한다</li>
 <li><p>truffle 또는 remix로 환경 초기화</p>
 <p><strong>truffle</strong></p>
-<div id="cb4" class="sourceCode">
 <div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="fu">mkdir</span> erc20</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">$ <span class="bu">cd</span> erc20</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">$ <span class="ex">turffle</span> init</a></code></pre></div>
-</div>
 <p><strong>remix</strong></p>
-<p><code>+</code>를 눌러서 <strong>파일이름.sol</strong> 파일을 만든다</p></li>
+<code>+</code>를 눌러서 <strong>파일이름.sol</strong> 파일을 만든다</li>
 <li><p>환경 설정</p>
 <p><strong>truffle</strong></p>
 <ul>
-<li><strong>truffle.js</strong>와 <strong>truffle-cnofig.js</strong>를 <a href="http://truffleframework.com/docs/advanced/configuration" class="uri uri">http://truffleframework.com/docs/advanced/configuration</a> 참고하여 초기화</li>
+<li><strong>truffle.js</strong>와 <strong>truffle-cnofig.js</strong>를 <a href="http://truffleframework.com/docs/advanced/configuration" class="uri">http://truffleframework.com/docs/advanced/configuration</a> 참고하여 초기화</li>
 <li>초기화 시 ganache server 부분을 참고한다</li>
 </ul>
 <p><strong>remix</strong></p>
@@ -198,10 +172,8 @@ Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.
 <ol start="6" type="1">
 <li><p>complie &amp; deploy</p>
 <p><strong>truffle</strong></p>
-<div id="cb5" class="sourceCode">
 <div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="ex">truffle</span> compile</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2">$ <span class="ex">truffle</span> migrate</a></code></pre></div>
-</div>
 <blockquote>
 <p>필요시 <code>$ truffle migrate --reset</code>을 한다</p>
 </blockquote>
@@ -214,19 +186,6 @@ Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.
 <li><p><code>generate</code>함수에 값을 넣어 토큰 만들고 여러 함수 만져보기<br />
 함수에 대한 것은 <a href="https://github.com/bear2u/erc20_token_react/blob/master/contracts/CustomToken.sol">스터디 리더님의 코드 및 정리를 참고</a></p></li>
 </ol>
-</section>
-</article>
-<br />
-
-<hr />
-<script src="https://utteranc.es/client.js" repo="5pecia1/5pecia1.github.io" issue-term="pathname" crossorigin="anonymous" async>
-</script>
-</main>
-<footer>
-Site proudly generated by <a href="http://jaspervdj.be/hakyll">Hakyll</a>
-</footer>
-</section>
-</div>
     </section>
 </article>
 <br />
