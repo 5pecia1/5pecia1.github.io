@@ -1,0 +1,15 @@
+{
+	"name": "Ubuntu",
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"features": {
+		"ghcr.io/devcontainers-contrib/features/haskell:2": {},
+		"ghcr.io/devcontainers/features/nix:1": {},
+		"ghcr.io/guiyomh/features/vim:0": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+			]
+		}
+	}
+}
