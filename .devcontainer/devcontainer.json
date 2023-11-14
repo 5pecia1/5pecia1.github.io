@@ -11,5 +11,6 @@
 			"extensions": [
 			]
 		}
-	}
+	},
+	"postStartCommand": "sudo apt update && sudo apt install zlib1g zlib1g-dev -y && stack install hakyll"
 }
