@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>부산 블록체인 이더리움 연구 스터디 1, 2회 정리 - Yak Shaving Mania</title>
+        <link rel="stylesheet" href="../css/default.css" />
+        <link rel="stylesheet" type="text/css" href="../css/github-markdown.css" />
+        <style>
+                .markdown-body {
+                        box-sizing: border-box;
+                }
+        </style>
+        <script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+                ga('create', 'UA-80634913-1', 'auto');
+                ga('send', 'pageview');
+        </script>
+        <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="../">Yak Shaving Mania's yak-hair</a>
+            </div>
+            <nav>
+                <a href="../">Home</a>
+                <a href="../about.html">About</a>
+                <a href="../contact.html">Contact</a>
+                <a href="../archive.html">Archive</a>
+            </nav>
+        </header>
+
+        <main role="main">
+            <h1>부산 블록체인 이더리움 연구 스터디 1, 2회 정리</h1>
+            <article>
+    <section class="header">
+        Posted on June  6, 2018
+        
+    </section>
+    <section>
+        
+        Tags: <a href="../tags/ethereum.html">ethereum</a>, <a href="../tags/blockchain.html">blockchain</a>, <a href="../tags/dapp.html">dapp</a>, <a href="../tags/solidity.html">solidity</a>
+        
+    </sectoin>
+    <br>
+    <br>
+    <br>
+    <section class="markdown-body">
+        <blockquote>
+<p>부산 블록체인 이더리움 연구 스터디 <a href="https://www.meetup.com/ko-KR/GDG-Busan/events/250677478">1회</a>, <a href="https://www.meetup.com/ko-KR/GDG-Busan/events/250835484">2회</a>에서 나왔던 내용을 정리하는 글 입니다.</p>
+</blockquote>
+<blockquote>
+<p>스터디 대부분의 사람들이 윈도우를 사용해서 스터디에서는 윈도우 기준으로 설명을 하였습니다.</p>
+</blockquote>
+<blockquote>
+<p>저는 윈도우에서 <strong>WSL</strong>(Windows Subsystem for Linux), <strong>Bash on Ubuntu 16.04 on Windows</strong>을 사용하여 개발하기 때문에 여기선 제가 설정한 환경을 기준으로 설명합니다.<br />
+윈도우에서 사용하는 방법은 필요시 간단하게 언급하겠습니다.</p>
+</blockquote>
+<h2 id="솔리디티-개발-환경-설정">솔리디티 개발 환경 설정</h2>
+<h3 id="node.js-npm"><a href="https://nodejs.org/en/">node.js &amp; npm</a></h3>
+<p>Nodejs 환경이 섞여서 버전관리가 안되는 상황을 피하기 위해 WSL내에서 <strong>NVM</strong>(Node Version Manager)을 설치해 Nodejs를 설치하였다.</p>
+<ol type="1">
+<li><a href="https://github.com/creationix/nvm#installation">nvm github</a>에 들어가서 먼저 NVM을 설치</li>
+<li><p>최신 LTS nodejs 설치</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" data-line-number="1">$ <span class="ex">nvm</span> install 8.11</a></code></pre></div></li>
+<li><p>확인(버전은 달라질 수 있다)</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" data-line-number="1">$ <span class="ex">node</span> -v</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="ex">v8.11.2</span></a></code></pre></div></li>
+</ol>
+<p><strong>윈도우 사용자</strong>는 <a href="https://nodejs.org/en/">nodejs</a>에 들어가서 바로 설치하고 <a href="https://www.npmjs.com/package/windows-build-tools">node windows build toools</a>를 설치하면 된다</p>
+<h3 id="truffle"><a href="http://truffleframework.com/">truffle</a></h3>
+<p>이더리움 개발 프레임워크</p>
+<p>위에서 <strong>npm</strong> 최신버전을 설치하였으면 <strong>truffle</strong>을 설치하는데 문제는 없다.</p>
+<ol type="1">
+<li><p>truffle을 명령어로 설치</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" data-line-number="1">$ <span class="ex">npm</span> install -g truffle</a></code></pre></div>
+<blockquote>
+<p>가끔 <code>-g</code>로 설치하기 위해서 <strong>Ubuntu on Windows</strong>를 <strong>관리자 모드</strong>로 열어야 할 때도 있다.</p>
+</blockquote></li>
+</ol>
+<h3 id="ganache">ganache</h3>
+<p>블록체인 테스트 네트워크를 만들어 주는 프로그램</p>
+<p>UI를 이용해 쉽게 사용하기 위해서 윈도우 버전으로 설치 하였다</p>
+<blockquote>
+<p>커멘드 라인에서 사용 가능한 <strong>ganache-cli</strong>도 있다</p>
+</blockquote>
+<ol type="1">
+<li><a href="http://truffleframework.com/ganache/">ganache</a>에 들어가서 다운로드 후 설치</li>
+</ol>
+<h3 id="visual-studio-code">Visual Studio Code</h3>
+<p>코드 작성 프로그램</p>
+<ol type="1">
+<li><a href="https://code.visualstudio.com/">Visual Studio Code</a>에서 설치</li>
+</ol>
+<!-- TODO: #### WSL을 VS code 에서 사용하기 -->
+<h4 id="필수-확장-툴">필수 확장 툴</h4>
+<p>아래 툴들을 <code>Ctrl + Shift + x</code>를 눌러서 설치해 준다</p>
+<ul>
+<li>Prettier</li>
+<li>solidity</li>
+</ul>
+<h3 id="metamask">MetaMask</h3>
+<p>이더리움을 브라우저에서 사용할수 있게 해주는 크롬 확장 프로그램</p>
+<ol type="1">
+<li>크롬에서 <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn">MetaMask</a>에 들어가서 설치</li>
+</ol>
+<h3 id="remix"><a href="https://remix.ethereum.org/">Remix</a></h3>
+<p>온리안 상 solidity 개발 툴</p>
+<ul>
+<li>코드작성, 컴파일, 디버깅, 테스트 등이 가능하다<br />
+</li>
+<li>별도의 설치가 필요 없다</li>
+</ul>
+<h2 id="사전에-알아야-할-것공부-해올-것">사전에 알아야 할 것(공부 해올 것)</h2>
+<h3 id="solidity">Solidity</h3>
+<p>이더리움 스마트계약 코드를 작성하기 위한 언어</p>
+<ul>
+<li><a href="https://cryptozombies.io/">크립토좀비</a></li>
+<li><a href="https://programmers.co.kr/pages/blockchain">프로그래머스</a></li>
+</ul>
+<h2 id="실습">실습</h2>
+<h3 id="rinkeby-이더리움-사용-실습">Rinkeby 이더리움 사용 실습</h3>
+<ol type="1">
+<li><a href="https://crowfunding-c9eff.firebaseapp.com/">블록체인 클라우드 펀딩 사이트</a>에 들어감</li>
+<li>MetaMask에서 <strong>Create Account</strong>로 계정을 만들고 계정 주소 복사</li>
+<li><a href="https://faucet.rinkeby.io/">Rinkeby</a>에서 SNS를 통해 이더를 얻음</li>
+<li>MetaMask에서 Network를 <strong>Rinkeby</strong>로 바꿈</li>
+<li>사이트 탐색</li>
+</ol>
+<h3 id="pet-shop"><a href="http://truffleframework.com/boxes/pet-shop">pet-shop</a></h3>
+<p>truffle의 box를 이용해서 실습해보는 이더리움 튜토리얼</p>
+<h3 id="erc20"><a href="https://eips.ethereum.org/EIPS/eip-20">ERC20</a></h3>
+<p>Ethereum Request for Comment의 20번째 내용인 스마트계약 토큰 표준</p>
+<p>여기선 erc20으로 간단하게 토큰을 만들어 본다</p>
+<ol type="1">
+<li>ganache를 실행 setting에서 server 부분을 잘 확인한다</li>
+<li><p>truffle 또는 remix로 환경 초기화</p>
+<p><strong>truffle</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" data-line-number="1">$ <span class="fu">mkdir</span> erc20</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">$ <span class="bu">cd</span> erc20</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">$ <span class="ex">turffle</span> init</a></code></pre></div>
+<p><strong>remix</strong></p>
+<code>+</code>를 눌러서 <strong>파일이름.sol</strong> 파일을 만든다</li>
+<li><p>환경 설정</p>
+<p><strong>truffle</strong></p>
+<ul>
+<li><strong>truffle.js</strong>와 <strong>truffle-cnofig.js</strong>를 <a href="http://truffleframework.com/docs/advanced/configuration" class="uri">http://truffleframework.com/docs/advanced/configuration</a> 참고하여 초기화</li>
+<li>초기화 시 ganache server 부분을 참고한다</li>
+</ul>
+<p><strong>remix</strong></p>
+<ol type="1">
+<li>MetaMask에서 <strong>Network</strong>를 <strong>Custom RPC</strong>로 바꾼다음 ganache server 부분을 참고하여 변경</li>
+<li><strong>Run</strong> -&gt; <strong>Environment</strong>를 <strong>Injected Web3</strong>로 설정</li>
+</ol></li>
+<li><p><strong>ERC20</strong> 코드 얻기</p>
+<ul>
+<li><a href="https://github.com/bear2u/erc20_token_react/blob/master/contracts/CustomToken.sol">스터디 리더님의 코드 및 정리를 참고</a></li>
+<li>또는 알아서 구해도 된다</li>
+</ul></li>
+<li><p>가져온 코드 붙이기</p></li>
+</ol>
+<ul>
+<li><strong>truffle</strong>: <strong>contracts/CustomToken.sol</strong>을 만들어 붙여 넣기</li>
+<li><strong>remix</strong>: 이전에 만든 파일에 붙여넣기</li>
+</ul>
+<ol start="6" type="1">
+<li><p>complie &amp; deploy</p>
+<p><strong>truffle</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" data-line-number="1">$ <span class="ex">truffle</span> compile</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">$ <span class="ex">truffle</span> migrate</a></code></pre></div>
+<blockquote>
+<p>필요시 <code>$ truffle migrate --reset</code>을 한다</p>
+</blockquote>
+<p><strong>remix</strong></p>
+<ol type="1">
+<li><strong>Compile</strong> -&gt; <strong>Start Compile</strong></li>
+<li><strong>Run</strong> -&gt; <strong>Deploy</strong>위의 select에서 <strong>CustomToken</strong>선택</li>
+<li><strong>Deploy</strong> 클릭</li>
+</ol></li>
+<li><p><code>generate</code>함수에 값을 넣어 토큰 만들고 여러 함수 만져보기<br />
+함수에 대한 것은 <a href="https://github.com/bear2u/erc20_token_react/blob/master/contracts/CustomToken.sol">스터디 리더님의 코드 및 정리를 참고</a></p></li>
+</ol>
+    </section>
+</article>
+<br />
+<hr />
+<script src="https://utteranc.es/client.js" repo="5pecia1/5pecia1.github.io" issue-term="pathname" crossorigin="anonymous" async>
+</script>
+
+        </main>
+
+        <footer>
+            Site proudly generated by
+            <a href="http://jaspervdj.be/hakyll">Hakyll</a>
+        </footer>
+    </body>
+</html>
